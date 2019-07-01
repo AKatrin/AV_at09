@@ -9,13 +9,31 @@ pipeline {
             }
         }
         stage('Unit Test') {
-            steps {
-                sh './quickstart/gradlew test -p quickstart/'
+            parallel {
+                stage('Unit Tests 1') { 
+                    steps {
+                        echo 'Executing Unit Tests 1 ..'
+                        sh './quickstart/gradlew test -p quickstart/'
+                    }
+                    post {
+                        always {
+                            junit "quickstart/build/test-results/test/*.xml"
+                            archiveArtifacts 'quickstart/build/reports/tests/test/*'
+                        }
+                    }
+                }
+                stage('Unit Tests 2') { 
+                    steps {
+                        echo 'Executing Unit Tests 2 ..'
+                        sh './quickstart/gradlew test -p quickstart/'
+                    }
+                }
             }
         }
         stage('Upload Artifacts') {
             steps {
-                sh './quickstart./gradlew uploadArchives'
+                echo 'Upload artifacts..'
+                sh './quickstart./gradlew uploadArchives -p quickstart/'
             }
         }
         stage('Deploy') {
