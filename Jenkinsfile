@@ -30,12 +30,6 @@ pipeline {
                 }
             }
         }
-        stage('Upload Artifacts') {
-            steps {
-                echo 'Upload artifacts..'
-                sh './quickstart./gradlew uploadArchives -p quickstart/'
-            }
-        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
