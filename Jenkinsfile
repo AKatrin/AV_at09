@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     stages {
-        
         stage('Assemble') {
             steps {
                 sh './quickstart/gradlew assemble -p quickstart/'
