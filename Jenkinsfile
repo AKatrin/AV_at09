@@ -1,10 +1,11 @@
 pipeline {
     agent any
-
     stages {
         stage('Assemble') {
             steps {
-                sh './quickstart/gradlew assemble -p quickstart/'
+                echo 'Compiling..'
+                sh './quickstart/gradlew assemble -p quickstart'
+                archiveArtifacts 'quickstart/build/libs/*.jar'
             }
         }
         stage('Unit Test') {
