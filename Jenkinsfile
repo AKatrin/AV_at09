@@ -2,26 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
-                script {
-                    sh './gradlew clean build'
-                }
-            }
-        }
+        
         stage('Assemble') {
             steps {
-                sh './gradlew assemble'
+                sh './quickstart/gradlew assemble -p quickstart/'
             }
         }
         stage('Unit Test') {
             steps {
-                sh './gradlew test'
+                sh './quickstart/gradlew test -p quickstart/'
             }
         }
         stage('Upload Artifacts') {
             steps {
-                sh './gradlew uploadArchives'
+                sh './quickstart./gradlew uploadArchives'
             }
         }
         stage('Deploy') {
