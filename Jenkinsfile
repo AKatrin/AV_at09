@@ -36,4 +36,9 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo 'This is a post action.'
+        }
+    }
   }
