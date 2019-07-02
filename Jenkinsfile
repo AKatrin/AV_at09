@@ -30,6 +30,12 @@ pipeline {
                 }
             }
         }
+        stage('Code analysis') {
+            steps {
+                echo 'Executing Code analysis ..'
+                sh './quickstart/gradlew check -p quickstart/'
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
