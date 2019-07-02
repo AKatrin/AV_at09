@@ -47,5 +47,5 @@ pipeline {
              subject: "Success Pipeline: test",
              body: "Something is wrong with test"
     }
-}
   }
+}
