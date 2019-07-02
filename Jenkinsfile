@@ -30,6 +30,12 @@ pipeline {
                 }
             }
         }
+        stage('Code analysis') {
+            steps {
+                echo 'Executing Code analysis ..'
+                sh './quickstart/gradlew clean findBugsMain pmdMain'
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
