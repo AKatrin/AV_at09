@@ -41,4 +41,11 @@ pipeline {
             echo 'This is a post action.'
         }
     }
+    post {
+    success {
+        mail to: 'areliez.vargas@gmail.com',
+             subject: "Success Pipeline: test",
+             body: "Something is wrong with test"
+    }
+}
   }
