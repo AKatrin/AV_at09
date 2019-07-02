@@ -1,8 +1,11 @@
 package org.gradle;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+/**
+ * Person test class.
+ */
 public class PersonTest {
     @Test
     public void canConstructAPersonWithAName() {
