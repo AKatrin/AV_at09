@@ -39,6 +39,19 @@ pmd {
     pmdTest.enabled=false
 }
 
+checkstyle {
+    toolVersion '7.8.1'
+    configFile file("config/checkstyle/checkstyle.xml")
+}
+
+checkstyleMain {
+    source ='src/main/java/org/gradle'
+}
+
+checkstyleTest {
+    source ='src/test/java/org/gradle'
+}
+
 tasks.withType(FindBugs) {
     reports {
         xml.enabled = false
@@ -46,7 +59,7 @@ tasks.withType(FindBugs) {
     }
 }
 
-tasks.withType(Pmd){
+tasks.withType(Pmd) {
     reports{
         xml.enabled=true
         html.enabled=true
