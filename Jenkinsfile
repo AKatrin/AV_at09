@@ -33,7 +33,7 @@ pipeline {
         stage('Code analysis') {
             steps {
                 echo 'Executing Code analysis ..'
-                sh './quickstart/gradlew clean findBugsMain pmdMain'
+                sh './quickstart/gradlew check -p quickstart/'
             }
         }
         stage('Deploy') {
