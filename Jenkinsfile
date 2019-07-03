@@ -30,10 +30,11 @@ pipeline {
                 }
             }
         }
-        stage('Code analysis') {
+        
+        stage('Sonarqube') {
             steps {
-                echo 'Executing Code analysis ..'
-                sh './quickstart/gradlew check -p quickstart/'
+                echo 'Executing Sonarqube ..'
+                sh './quickstart/gradlew sonarqube -p quickstart/'
             }
         }
         stage('Deploy') {
