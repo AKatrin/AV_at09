@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'pmd'
-    id 'checkstyle' version '7.8.1'
+    id 'checkstyle'
     id 'findbugs'
     id 'org.sonarqube' version '2.7'
 }
@@ -38,18 +38,6 @@ findbugs{
 pmd {
     ignoreFailures = true
     pmdTest.enabled=false
-}
-
-checkstyle {
-    configFile file("config/checkstyle/checkstyle.xml")
-}
-
-checkstyleMain {
-    source ='src/main/java/org/gradle'
-}
-
-checkstyleTest {
-    source ='src/test/java/org/gradle'
 }
 
 tasks.withType(FindBugs) {
